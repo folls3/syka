@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Data Since Algorithm</title>
+<style>
+  body {
+    font-family: sans-serif;
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+
+  .data-text {
+    font-size: 1em;
+    margin-right: 5px;
+  }
+
+  .separator {
+    font-size: 1em;
+    margin: 0 5px;
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <span class="data-text">Data</span>
+  <span class="separator">|</span>
+  <span class="data-text">Since</span>
+  <span class="separator">|</span>
+  <span class="data-text">Algorithm</span>
+  <span class="separator">|</span>
+  <span class="data-text">HTML</span>
+  <span class="separator">|</span>
+  <span class="data-text">CSS</span>
+  <span class="separator">|</span>
+  <span class="data-text">JavaScript</span>
+</div>
+
+<script>
+  const dataText = document.querySelector('.data-text');
+  dataText.textContent = 'Data';
+
+  function updateText() {
+    const now = new Date().getTime();
+    const timeDiff = now - new Date('2023-01-01T00:00:00').getTime();
+    const seconds = Math.floor(timeDiff / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+      dataText.textContent = hours + ' Hours';
+    } else if (minutes > 0) {
+      dataText.textContent = minutes + ' Minutes';
+    } else {
+      dataText.textContent = seconds + ' Seconds';
+    }
+  }
+
+  setInterval(updateText, 1000);
+</script>
+</body>
+</html>
